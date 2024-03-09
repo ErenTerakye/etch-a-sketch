@@ -1,11 +1,19 @@
-const container = document.querySelector('#container');
+const container = document.querySelector("#container");
 
 for (let i = 0; i < 16; i++) {
-  let div = document.createElement('div');
-  div.setAttribute('class', 'row')
-  div.setAttribute('id', `${i+1}`);
-  container.appendChild(div);
+  let row = document.createElement("div");
+  row.setAttribute("class", "row")
+  container.appendChild(row);
   for (let j = 0; j < 16; j++) {
-    div.appendChild(document.createElement('div'));
+    let column = document.createElement("div");
+    column.setAttribute("class", "column");
+    row.appendChild(column);
   }
 }
+
+container.addEventListener("mouseover", (event) => {
+  if(event.target.classList.contains("column")) {
+    const target = event.target;
+    target.style.background= "black";
+  }
+});
