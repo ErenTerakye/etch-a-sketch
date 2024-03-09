@@ -1,4 +1,5 @@
 const container = document.querySelector("#container");
+const button = document.querySelector("button");
 
 for (let i = 0; i < 16; i++) {
   let row = document.createElement("div");
@@ -17,3 +18,27 @@ container.addEventListener("mouseover", (event) => {
     target.style.background= "black";
   }
 });
+
+button.addEventListener("click", createNewGrid);
+
+function createNewGrid() {
+  let gridLength;
+  do {
+    gridLength = parseInt(prompt("Enter the grid length"));
+  } while(typeof(gridLength) !== "number" || gridLength < 1 || gridLength > 100);
+  container.innerHTML = "";
+
+  let boxSize = 480 / gridLength;
+
+  for (let i = 0; i < gridLength; i++) {
+    let row = document.createElement("div");
+    row.setAttribute("class", "row");
+    container.appendChild(row);
+    for (let j = 0; j < gridLength; j++) {
+      let column = document.createElement("div");
+      column.setAttribute("class", "column");
+      column.style.padding = `${boxSize / 2 - 1}px`
+      row.appendChild(column);
+    }
+  }
+}

@@ -10,5 +10,9 @@
 
 .row div {
   border: 1px solid black;
-  padding: 10px;
+  padding: 14px;
+}
+
+button {
+  margin-bottom: 16px;
 }
