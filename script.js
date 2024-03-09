@@ -15,7 +15,8 @@ for (let i = 0; i < 16; i++) {
 container.addEventListener("mouseover", (event) => {
   if(event.target.classList.contains("column")) {
     const target = event.target;
-    target.style.background= "black";
+
+    target.style.background= `rgb(${getRandomNumber(256)}, ${getRandomNumber(256)}, ${getRandomNumber(256)})`;
   }
 });
 
@@ -41,4 +42,8 @@ function createNewGrid() {
       row.appendChild(column);
     }
   }
+}
+
+function getRandomNumber(excludedLastNum) {
+  return Math.floor(Math.random() * excludedLastNum);
 }
